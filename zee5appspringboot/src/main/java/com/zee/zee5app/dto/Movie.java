@@ -28,8 +28,8 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@EqualsAndHashCode
-@ToString
+//@EqualsAndHashCode
+//@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -58,11 +58,6 @@ public class Movie implements Comparable<Movie>{
 	@NotBlank
 	private String genre;
 	
-	
-	
-	
-	
-
 	@Override
 	public int compareTo(Movie o) {
 		// TODO Auto-generated method stub

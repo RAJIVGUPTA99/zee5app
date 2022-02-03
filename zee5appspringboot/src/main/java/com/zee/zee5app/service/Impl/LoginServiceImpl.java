@@ -10,13 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zee.zee5app.dto.Login;
-import com.zee.zee5app.dto.ROLE;
+import com.zee.zee5app.dto.EROLE;
 import com.zee.zee5app.dto.Register;
 import com.zee.zee5app.exception.IdNotFoundException;
-import com.zee.zee5app.exception.InvalidEmailException;
-import com.zee.zee5app.exception.InvalidIdLengthException;
-import com.zee.zee5app.exception.InvalidNameException;
-import com.zee.zee5app.exception.InvalidPasswordException;
 import com.zee.zee5app.repository.LoginRepository;
 import com.zee.zee5app.service.LoginService;
 
@@ -66,7 +62,7 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	@Override
-	public String changeRole(String userName, ROLE role) {
+	public String changeRole(String userName, EROLE role) {
 		// TODO Auto-generated method stub
 		return null;
 	}

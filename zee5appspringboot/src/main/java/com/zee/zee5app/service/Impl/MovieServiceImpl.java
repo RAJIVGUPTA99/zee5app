@@ -28,10 +28,6 @@ public class MovieServiceImpl implements MovieService {
 	@Autowired
 	private MovieRepository repository ;
 	
-//    public MovieServiceImpl() throws IOException{
-//		
-//	}
-
 	@Override
 	public String addMovie(Movie movie) {
 		// TODO Auto-generated method stub
@@ -83,24 +79,5 @@ public class MovieServiceImpl implements MovieService {
 		return Optional.ofNullable(repository.findAll());
 	}
     
-    
-	
-//	@Override
-//	public String addMovie(Movie movie) {
-//		// TODO Auto-generated method stub
-//		return this.repository.addMovie(movie);
-//	}
-//
-//	@Override
-//	public Movie getMovieById(String id) {
-//		// TODO Auto-generated method stub
-//		return this.repository.getMovieById(id);
-//	}
-//
-//	@Override
-//	public Movie[] getAllMovies() {
-//		// TODO Auto-generated method stub
-//		return repository.getAllMovie();
-//	}
 
 }

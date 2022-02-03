@@ -24,10 +24,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
 	@Autowired
 	public SubscriptionRepository repository;
-	
-//	public SubscriptionServiceImpl() throws IOException {
-//		
-//	}
+
 
 	@Override
 	public String addSubscription(Subscription subscription) throws InvalidAmountException {
@@ -77,23 +74,5 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 		// TODO Auto-generated method stub
 		return Optional.ofNullable(repository.findAll());
 	}
-	
-//	@Override
-//	public String addSubscription(Subscription subscription) {
-//		// TODO Auto-generated method stub
-//		return this.repository.addSubscription(subscription);
-//	}
-//
-//	@Override
-//	public Subscription getSubscriptionById(String id) {
-//		// TODO Auto-generated method stub
-//		return this.repository.getSubscriptionById(id);
-//	}
-//
-//	@Override
-//	public Subscription[] getAllSubscriptions() {
-//		// TODO Auto-generated method stub
-//		return repository.getAllSubscription();
-//	}
 
 }

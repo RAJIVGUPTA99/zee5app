@@ -26,10 +26,6 @@ public class SeriesServiceImpl implements SeriesService {
 
 	@Autowired
 	public SeriesRepository repository;
-	
-//    public SeriesServiceImpl() throws IOException {
-//		
-//	}
 
 	@Override
 	public String addSeries(Series series) {
@@ -79,23 +75,6 @@ public class SeriesServiceImpl implements SeriesService {
 		// TODO Auto-generated method stub
 		return Optional.ofNullable(repository.findAll());
 	}
-	
-//	@Override
-//	public String addSeries(Series series) {
-//		// TODO Auto-generated method stub
-//		return this.repository.addSeries(series);
-//	}
-//
-//	@Override
-//	public Series getSeriesById(String id) {
-//		// TODO Auto-generated method stub
-//		return this.repository.getSeriesById(id);
-//	}
-//
-//	@Override
-//	public Series[] getAllSeries() {
-//		// TODO Auto-generated method stub
-//		return repository.getAllSeries();
-//	}
+
 
 }

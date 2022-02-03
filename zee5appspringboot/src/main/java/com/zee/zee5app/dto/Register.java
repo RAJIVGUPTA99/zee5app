@@ -1,10 +1,21 @@
 package com.zee.zee5app.dto;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -37,8 +48,7 @@ import java.math.BigInteger;
 @NoArgsConstructor
 
 //we use this method to override instead of other one used below coz when we change anything later, it can handle on its own
-@EqualsAndHashCode
-@ToString
+//@EqualsAndHashCode
 
 //ORM mapping purpose
 @Entity //entity class is used for ORM - from javax
@@ -80,5 +90,19 @@ public class Register implements Comparable<Register>{
 		//descending order
 		//return o.id.compareTo(this.getId())
 	}
+	
+	@ManyToMany
+	//maintain in 3rd table
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "regId"), 
+	inverseJoinColumns = @JoinColumn(name = "roleId") )//relationship btwn registered user(regId) and role(roleId)
+	private Set<Role> roles = new HashSet<>();
+	
+	@OneToOne(mappedBy = "register", cascade = CascadeType.ALL)
+	private Subscription subscription;
+	
+	@OneToOne(mappedBy = "register", cascade = CascadeType.ALL)
+	private Login login;
+	
+	
 
 }

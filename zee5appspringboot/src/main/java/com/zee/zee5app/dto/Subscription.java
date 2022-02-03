@@ -3,6 +3,8 @@ package com.zee.zee5app.dto;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -12,7 +14,6 @@ import org.hibernate.validator.constraints.Length;
 import com.zee.zee5app.exception.InvalidAmountException;
 import com.zee.zee5app.exception.InvalidIdLengthException;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,8 +24,8 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@EqualsAndHashCode
-@ToString
+//@EqualsAndHashCode
+//@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -50,12 +51,14 @@ public class Subscription implements Comparable<Subscription>{
 	private String type;
 	@NotBlank
     private String autoRenewal;
-    @NotBlank
-    private String regId;
 
 	@Override
 	public int compareTo(Subscription o) {
 		// TODO Auto-generated method stub
 		return this.id.compareTo(o.getId());
 	}
+	
+	@OneToOne
+	@JoinColumn(name = "regId")
+	private Register register;
 }

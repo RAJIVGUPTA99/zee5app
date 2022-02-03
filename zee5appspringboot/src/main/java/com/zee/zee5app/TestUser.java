@@ -1,5 +1,6 @@
 //package com.zee.zee5app;
-//
+
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import java.math.BigDecimal;
 //import java.util.List;
 //import java.util.Optional;
@@ -17,6 +18,7 @@
 //import com.zee.zee5app.repository.UserRepository;
 //import com.zee.zee5app.service.UserService;
 //
+//@SpringBootApplication
 //public class TestUser {
 //	public static void main(String[] args) {
 //		

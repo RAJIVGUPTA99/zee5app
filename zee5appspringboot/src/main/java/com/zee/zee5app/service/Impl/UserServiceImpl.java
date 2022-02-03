@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.zee.zee5app.dto.Login;
-import com.zee.zee5app.dto.ROLE;
 import com.zee.zee5app.dto.Register;
 import com.zee.zee5app.exception.AlreadyExistsException;
 import com.zee.zee5app.exception.IdNotFoundException;
@@ -45,7 +44,7 @@ public class UserServiceImpl implements UserService {
 		}
 		Register register2 = repository.save(register);
 		if (register2 != null) {
-			Login login = new Login(register.getEmail(), register.getPassword(), register.getId(), null);
+			Login login = new Login(register.getEmail(), register.getPassword(),register2);
 			if(loginRepository.existsByUserName(register.getEmail())) {
 				throw new AlreadyExistsException("this record already exists");
 			}

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -26,19 +28,17 @@ public class Login implements Comparable<Login>{
 	@Id
 	@Column(name = "username")
 	private String userName;
-	//@NotBlank
+    @NotBlank
 	private String password;
-	//@NotBlank
-	private String regId;
-	//@Enumerated(EnumType.STRING)
-	private ROLE role;
 
 	@Override
 	public int compareTo(Login o) {
 		// TODO Auto-generated method stub
-		return this.regId.compareTo(o.getRegId());
+		return this.userName.compareTo(o.getUserName());
 	}
 	
- 
+    @OneToOne
+    @JoinColumn(name = "regId")
+	private Register register;
 
 }
