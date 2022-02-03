@@ -52,26 +52,24 @@ public class Zee5appspringbootApplication {
 		UserService service = applicationContext.getBean(UserService.class);
 		Register register;
 		
-//		try {
+		try {
 		
-//		register = new Register("ab00122", "riya", "sharma", "riy222@gmail.com", "Ji2ed3443", new BigDecimal("9813973123"));
+		register = new Register("ab001212", "riya", "sharma", "riy222@gmail.com", "Ji2ed3443", new BigDecimal("9813973123"));
+		System.out.println(service.addUser(register));
+//		
+//		register = new Register("ab00123", "rohan", "mehra", "rh32@gmail.com", "Ft5gfd", new BigDecimal("8631973123"));
 //		System.out.println(service.addUser(register));
 //
-//			register = new Register("ab00123", "rohan", "mehra", "rh32@gmail.com", "Ft5gfd", new BigDecimal("8631973123"));
-//			System.out.println(service.addUser(register));
-		
-//		
 //		register = new Register("ab00124", "rajiv", "gupta", "rfw2@gmail.com", "G4edfr", new BigDecimal("981397372"));
 //		System.out.println(service.addUser(register));
-//		} catch (AlreadyExistsException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		} catch (AlreadyExistsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
 
 		
-		System.out.println(userrepository.existsByEmailAndContactNumber("rh32@gmail.com", new BigDecimal("8631973123")));
-
-		
+//		System.out.println(userrepository.existsByEmailAndContactNumber("rh32@gmail.com", new BigDecimal("8631973123")));
 
 		
 //		Optional<Register> register1 = null;

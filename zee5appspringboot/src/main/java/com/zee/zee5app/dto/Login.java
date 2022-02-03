@@ -26,11 +26,11 @@ public class Login implements Comparable<Login>{
 	@Id
 	@Column(name = "username")
 	private String userName;
-	@NotBlank
+	//@NotBlank
 	private String password;
-	@NotBlank
+	//@NotBlank
 	private String regId;
-	@Enumerated(EnumType.STRING)
+	//@Enumerated(EnumType.STRING)
 	private ROLE role;
 
 	@Override
