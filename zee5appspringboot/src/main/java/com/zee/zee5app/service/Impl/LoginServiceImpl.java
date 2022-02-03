@@ -23,14 +23,9 @@ import com.zee.zee5app.service.LoginService;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-//    @Autowired
-//	DataSource dataSource;
+
 	@Autowired
 	private LoginRepository repository ;
-//	
-//	public LoginServiceImpl() throws IOException {
-//		
-//	}
 	
 	@Override
 	public String addCredentials(Login login) {
@@ -55,7 +50,7 @@ public class LoginServiceImpl implements LoginService {
 			}
 			else {
 				repository.deleteById(userName);
-				return "register record deleted";
+				return "login record deleted";
 			}
 		} catch (IdNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -75,7 +70,5 @@ public class LoginServiceImpl implements LoginService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }

@@ -67,8 +67,8 @@ public class Register implements Comparable<Register>{
 	@NotBlank
 	private String password;
 	
-	
-	private BigDecimal contactnumber;
+	@NotBlank
+	private BigDecimal contactNumber;
 
 	@Override
 	public int compareTo(Register o) {

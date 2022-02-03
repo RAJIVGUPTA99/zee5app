@@ -8,12 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.zee.zee5app.dto.Login;
+import com.zee.zee5app.dto.ROLE;
 import com.zee.zee5app.dto.Register;
+import com.zee.zee5app.exception.AlreadyExistsException;
 import com.zee.zee5app.exception.IdNotFoundException;
 import com.zee.zee5app.exception.InvalidEmailException;
 import com.zee.zee5app.exception.InvalidIdLengthException;
 import com.zee.zee5app.exception.InvalidNameException;
 import com.zee.zee5app.exception.InvalidPasswordException;
+import com.zee.zee5app.repository.LoginRepository;
 import com.zee.zee5app.repository.UserRepository;
 import com.zee.zee5app.service.UserService;
 
@@ -22,29 +26,29 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository repository;
+	@Autowired
+	private LoginServiceImpl service;
 
-//	private UserServiceImpl() throws IOException {
-//		
-//	}
-	// getting repository object through spring
-//    public UserServiceImpl() throws IOException {
-//		
-//	}
-//	
-
-//	private static UserService service;
-//	public static UserService getInstance() throws IOException{
-//		if(service==null)
-//			service = new UserServiceImpl();
-//		return service;
-//	}
 	@Override
-	public String addUser(Register register) {
+	public String addUser(Register register) throws AlreadyExistsException {
 		// TODO Auto-generated method stub
+		//make exception for the next line
+		if(repository.existsByEmailAndContactNumber(register.getEmail(), register.getContactNumber()) == true) {
+			throw new AlreadyExistsException("this record already exists");
+		}
 		Register register2 = repository.save(register);
 		if (register2 != null) {
-			return "record added in register";
-		} else {
+			Login login = new Login(register.getEmail(), register.getPassword(), register.getId(), ROLE.ROLE_USER);
+			String result = service.addCredentials(login);
+			if(result != "success") {
+				return "record added in register and login";
+			}
+			else {
+				//rollback here
+				return "fail";
+			}
+		}
+		else {
 			return "fail";
 		}
 	}
