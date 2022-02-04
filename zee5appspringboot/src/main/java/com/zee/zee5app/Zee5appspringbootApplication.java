@@ -61,19 +61,19 @@ public class Zee5appspringbootApplication {
 		role.setRoleName(EROLE.ROLE_ADMIN);
 		Role role2 = new Role();
 		role2.setRoleName(EROLE.ROLE_USER);
+	    roleService.addRole(role2);
+	    roleService.addRole(role);
 		Set<Role> roles = new HashSet<>();
 	
 		UserService service = applicationContext.getBean(UserService.class);
-		Register register1 = null,register2 = null,register3 = null, register4 = null;
+		Register register1 = null,register2 = null, register3 = null, register4 = null;
 	
-		System.out.println(role);
-		System.out.println(role2);
 
 		try {
 		
 		register1 = new Register("ab00131", "riya", "sharma", "riy231@gmail.com", "Ji2ed3443", new BigDecimal("9813973123"), null,null,null);;
-//		roles.add(roleRepository.findById(0).get()); // this add in user_roles_table
-//		roles.add(roleRepository.findById(0).get());
+		roles.add(roleRepository.findById(1).get()); // this add in user_roles_table
+		roles.add(roleRepository.findById(2).get());
 		register1.setRoles(roles);// this add in user_roles_table
 		System.out.println(service.addUser(register1));
 		
@@ -93,8 +93,6 @@ public class Zee5appspringbootApplication {
 			e.printStackTrace();
 			
 		}
-		
-		System.out.println(roles);
 
 		System.out.println(userrepository.existsByEmailAndContactNumber("rh32@gmail.com", new BigDecimal("8631973123")));
 
