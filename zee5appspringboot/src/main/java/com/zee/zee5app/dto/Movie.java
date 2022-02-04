@@ -7,6 +7,7 @@ import javax.naming.NameNotFoundException;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
@@ -49,12 +50,13 @@ public class Movie implements Comparable<Movie>{
 	private int length;
 	@NotNull
 	private String releaseDate;
-	//@NotBlank
+//	@Lob // this to to store file as blob
+//	private byte[] trailer;
 	private String trailer;
 	@NotBlank
 	private String language;
 	@Max(value = 70)
-	private String ageLimit;
+	private int ageLimit;
 	@NotBlank
 	private String genre;
 	
