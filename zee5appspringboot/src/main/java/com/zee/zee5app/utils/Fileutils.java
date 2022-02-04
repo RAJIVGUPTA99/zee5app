@@ -21,7 +21,7 @@ public class Fileutils {
 	
 	public String writeFile(byte[] allBytes, String fileName)  {
 		
-		FileOutputStream fileOutputStream;
+		FileOutputStream fileOutputStream = null;
 		try {
 			fileOutputStream = new FileOutputStream(fileName);
 			fileOutputStream.write(allBytes);
@@ -31,9 +31,16 @@ public class Fileutils {
 			e.printStackTrace();
 			return "fail";
 		}
+		finally {
+			try {
+				fileOutputStream.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	
 	}
+	
 }
-
-
 //fileName = file + file.getName();

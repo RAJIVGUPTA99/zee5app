@@ -15,12 +15,13 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-
+@ToString
 @Entity
 @Table(name = "login")
 public class Login implements Comparable<Login>{

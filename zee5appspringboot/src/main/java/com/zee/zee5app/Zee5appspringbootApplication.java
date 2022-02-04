@@ -260,14 +260,15 @@ public class Zee5appspringbootApplication {
 //		
 //		Fileutils fileutils = applicationContext.getBean(Fileutils.class);
 //		
+//     //File file = new File();
 //		String source = "C:\\Users\\rajiv.gupta\\Downloads\\video1.mp4";
-//	    String destination = "C:\\Users\\rajiv.gupta\\Downloads\\movies\\movieStore\\video2.mp4";
+//	    String destination = "C:\\Users\\rajiv.gupta\\Downloads\\movies\\movieStore\\"+file.getName();
 //	    
 //	    movie.setTrailer(destination);
 //	    
 //	    String result = service3.addMovie(movie);
 //	    if(result.equals("record added in movie")) {
-//	    	File file = new File(source);
+//	    	file = new File(source);
 //	    	byte[] data;
 //	   
 //	    	try {
@@ -572,7 +573,7 @@ public class Zee5appspringbootApplication {
 //			e1.printStackTrace();
 //		}
 //		
-		applicationContext.close();
+//		applicationContext.close();
 
 	}
 
