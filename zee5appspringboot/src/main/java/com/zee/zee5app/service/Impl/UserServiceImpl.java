@@ -117,8 +117,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<List<Register>> getAllUserDetails()
-			throws InvalidIdLengthException, InvalidNameException, InvalidEmailException, InvalidPasswordException {
+	public Optional<List<Register>> getAllUserDetails() {
 		// TODO Auto-generated method stub
 		return Optional.ofNullable(repository.findAll());
 	}
