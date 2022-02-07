@@ -71,8 +71,8 @@ public class Register implements Comparable<Register>{
 	private String password;
 	
 	@NotNull
-	@Length(min = 10)
-	@Length(max = 10)
+//	@Length(min = 10)
+//	@Length(max = 10)
 	private BigInteger contactNumber;
 
 	@Override

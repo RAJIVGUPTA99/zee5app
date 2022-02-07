@@ -67,7 +67,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String updateUser(String id, Register register) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		
+		if(!this.repository.existsById(id))
+			throw new IdNotFoundException("invalid id");
+		
+		return (this.repository.save(register)!= null) ? "success":"fail";
 		//we dont write here coz update is automatically taken care of
 	}
 

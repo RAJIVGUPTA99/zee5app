@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.nio.file.ReadOnlyFileSystemException;
 import java.util.HashSet;
 import java.util.List;
@@ -151,6 +152,18 @@ public class Zee5appspringbootApplication {
 //			// TODO Auto-generated catch block
 //			e2.printStackTrace();
 //		}
+//		
+//		System.out.println("For updating record");
+//		Register register = new Register("ab0000013","rajiv3","gupta3","rg38@gmail.com","Rj84dfns", new BigInteger("9835120937"),null,null,null);
+//        
+//		try {
+//			service.updateUser("ab0000013", register);
+//		} catch (IdNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		
 ////
 ////	System.out.println("\n\t\t\t\t\tTHIS IS FOR LOGIN\n");
 ////	
