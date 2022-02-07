@@ -29,14 +29,15 @@ public class MovieServiceImpl implements MovieService {
 	private MovieRepository repository ;
 	
 	@Override
-	public String addMovie(Movie movie) {
+	public Movie addMovie(Movie movie) {
 		// TODO Auto-generated method stub
 		repository.findById(movie.getMovieName());
 		Movie movie2 = repository.save(movie);
 		if (movie2 != null) {
-			return "record added in movie";
+			//return "record added in movie";
+			return movie2;
 		} else {
-			return "fail";
+			return null;
 		}
 	}
 

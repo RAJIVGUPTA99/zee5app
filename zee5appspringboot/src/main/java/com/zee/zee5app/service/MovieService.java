@@ -13,7 +13,7 @@ import com.zee.zee5app.repository.MovieRepository;
 
 public interface MovieService {
 	
-	public String addMovie(Movie movie);
+	public Movie addMovie(Movie movie);
 	public String deleteMovie(String id) throws IdNotFoundException;
 	public String modifyMovie(String id, Movie movie) throws IdNotFoundException;
 	public Optional<Movie> getMovieById(String id) throws IdNotFoundException, NameNotFoundException, InvalidIdLengthException;

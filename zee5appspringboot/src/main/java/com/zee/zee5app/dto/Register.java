@@ -48,7 +48,7 @@ import java.math.BigInteger;
 @NoArgsConstructor
 
 //we use this method to override instead of other one used below coz when we change anything later, it can handle on its own
-//@EqualsAndHashCode
+@EqualsAndHashCode
 @ToString
 //ORM mapping purpose
 @Entity //entity class is used for ORM - from javax

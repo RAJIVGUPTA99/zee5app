@@ -36,10 +36,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@org.springframework.transaction.annotation.Transactional(rollbackFor = AlreadyExistsException.class)
-	public String addUser(Register register) throws AlreadyExistsException {
+	public Register addUser(Register register) throws AlreadyExistsException {
 		// TODO Auto-generated method stub
 		//make exception for the next line
-		if(repository.existsByEmailAndContactNumber(register.getEmail(), register.getContactNumber()) == true) {
+		boolean status = repository.existsByEmailAndContactNumber(register.getEmail(), register.getContactNumber()) ;
+		if(status) {
 			throw new AlreadyExistsException("this record already exists");
 		}
 		Register register2 = repository.save(register);
@@ -50,14 +51,15 @@ public class UserServiceImpl implements UserService {
 			}
 			String result = service.addCredentials(login);
 			if(result == "success") {
-					return "record added in register and login";
+					//return "record added in register and login";
+				return register2;
 			}
 			else {
-				return "fail";
+				return null;
 			}
 		}	
 		else {
-			return "fail";
+			return null;
 		}
 				
 	}

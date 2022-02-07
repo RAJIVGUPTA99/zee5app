@@ -151,12 +151,12 @@ public class Zee5appspringbootApplication {
 //			// TODO Auto-generated catch block
 //			e2.printStackTrace();
 //		}
-
-//	System.out.println("\n\t\t\t\t\tTHIS IS FOR LOGIN\n");
-//	
-//	LoginService service5  = applicationContext.getBean(LoginService.class);
-//	
-//	System.out.println(service5.changeRole("tanya21@gmail.com", ROLE.ROLE_ADMIN));
+////
+////	System.out.println("\n\t\t\t\t\tTHIS IS FOR LOGIN\n");
+////	
+////	LoginService service5  = applicationContext.getBean(LoginService.class);
+////	
+////	System.out.println(service5.changeRole("tanya21@gmail.com", ROLE.ROLE_ADMIN));
 //
 //		System.out.println("\n\t\t\t\t\tTHIS IS FOR SUBSCRIPTION\n");
 //
@@ -247,122 +247,122 @@ public class Zee5appspringbootApplication {
 //		System.out.println("\n\t\t\t\t\tTHIS IS FOR MOVIES\n");
 //
 //		MovieService service3 = applicationContext.getBean(MovieService.class);
-//		Movie movie = new Movie();
+//		Movie movie = null;
 //	
-//		movie.setAgeLimit(18);
-//		movie.setCast("abc,def");
-//		movie.setGenre("action");
-//		movie.setId("mov0018");
-//		movie.setLanguage("tamil");
-//		movie.setLength(120);
-//		movie.setMovieName("wanted12");
-//		movie.setReleaseDate("2021-12-12");
-//		
-//		Fileutils fileutils = applicationContext.getBean(Fileutils.class);
-//		
-//     //File file = new File();
-//		String source = "C:\\Users\\rajiv.gupta\\Downloads\\video1.mp4";
-//	    String destination = "C:\\Users\\rajiv.gupta\\Downloads\\movies\\movieStore\\"+file.getName();
-//	    
-//	    movie.setTrailer(destination);
-//	    
-//	    String result = service3.addMovie(movie);
-//	    if(result.equals("record added in movie")) {
-//	    	file = new File(source);
-//	    	byte[] data;
-//	   
-//	    	try {
-//				data = fileutils.readFile(file);
-//				fileutils.writeFile(data, destination);
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//	    	
-//	    }
-//		
-//		
-//		//this is for blob
-//		FileInputStream fileInputStream = null;
-//		FileOutputStream fileOutputStream = null;
-//
-//		try {
-//			//input the file
-//			File file = new File("C:\\Users\\rajiv.gupta\\Downloads\\video1.mp4");
-//			fileInputStream = new FileInputStream(file);
-//			long fileSize = file.length();
-//			byte[] allBytes = new byte[(int) fileSize];
-//			
-//			fileInputStream.read(allBytes);
-//			movie.setTrailer("C:\\Users\\rajiv.gupta\\Downloads\\movies\\movieStore\\"+file.getName());
-//			
-//			String result = service3.addMovie(movie);
-//			//output the file and store it in movieStore
-//			if(result.equals("record added in movie")) {
-//				fileOutputStream = new FileOutputStream("C:\\Users\\rajiv.gupta\\Downloads\\movies\\movieStore\\"+file.getName());
-//				fileOutputStream.write(allBytes);
-//			}
-//			
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		finally {
-//			try {
-//				fileInputStream.close();
-//				fileOutputStream.close();
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//		String result = service3.addMovie(movie);
-//		
-//		//we did this to check if its working properly or not
-//		FileOutputStream fileOutputStream = null;
-//		try {
-//			Optional<Movie> optional = service3.getMovieById("mov0012");
-//			
-//			if(optional.isEmpty()) {
-//				System.out.println("movie not found");
-//			}
-//			else {
-//				//we should print the info and copy the file to movies folder with name wanted12
-//				
-//				Movie movie = optional.get();
-//				fileOutputStream = new FileOutputStream("C:\\Users\\rajiv.gupta\\Downloads\\movies\\read\\wanted12.mp4");
-//				fileOutputStream.write(movie.getTrailer());
-//			}
-//		} catch (NameNotFoundException | IdNotFoundException | InvalidIdLengthException | IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		finally {
-//			try {
-//				fileOutputStream.close();
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		
+////		movie.setAgeLimit(18);
+////		movie.setCast("abc,def");
+////		movie.setGenre("action");
+////		movie.setId("mov0018");
+////		movie.setLanguage("tamil");
+////		movie.setLength(120);
+////		movie.setMovieName("wanted12");
+////		movie.setReleaseDate("2021-12-12");
+////		
+////		Fileutils fileutils = applicationContext.getBean(Fileutils.class);
+////		
+////     //File file = new File();
+////		String source = "C:\\Users\\rajiv.gupta\\Downloads\\video1.mp4";
+////	    String destination = "C:\\Users\\rajiv.gupta\\Downloads\\movies\\movieStore\\video2.mp4";
+////	    
+////	    movie.setTrailer(destination);
+////	    
+////	    String result = service3.addMovie(movie);
+////	    if(result.equals("record added in movie")) {
+////	    	file = new File(source);
+////	    	byte[] data;
+////	   
+////	    	try {
+////				data = fileutils.readFile(file);
+////				fileutils.writeFile(data, destination);
+////			} catch (IOException e) {
+////				// TODO Auto-generated catch block
+////				e.printStackTrace();
+////			}
+////	    	
+////	    }
+////		
+////		
+////		//this is for blob
+////		FileInputStream fileInputStream = null;
+////		FileOutputStream fileOutputStream = null;
+////
+////		try {
+////			//input the file
+////			File file = new File("C:\\Users\\rajiv.gupta\\Downloads\\video1.mp4");
+////			fileInputStream = new FileInputStream(file);
+////			long fileSize = file.length();
+////			byte[] allBytes = new byte[(int) fileSize];
+////			
+////			fileInputStream.read(allBytes);
+////			movie.setTrailer("C:\\Users\\rajiv.gupta\\Downloads\\movies\\movieStore\\"+file.getName());
+////			
+////			String result = service3.addMovie(movie);
+////			//output the file and store it in movieStore
+////			if(result.equals("record added in movie")) {
+////				fileOutputStream = new FileOutputStream("C:\\Users\\rajiv.gupta\\Downloads\\movies\\movieStore\\"+file.getName());
+////				fileOutputStream.write(allBytes);
+////			}
+////			
+////		} catch (IOException e) {
+////			// TODO Auto-generated catch block
+////			e.printStackTrace();
+////		}
+////		finally {
+////			try {
+////				fileInputStream.close();
+////				fileOutputStream.close();
+////			} catch (IOException e) {
+////				// TODO Auto-generated catch block
+////				e.printStackTrace();
+////			}
+////		}
+////		
+////		String result = service3.addMovie(movie);
+////		
+////		//we did this to check if its working properly or not
+////		FileOutputStream fileOutputStream = null;
+////		try {
+////			Optional<Movie> optional = service3.getMovieById("mov0012");
+////			
+////			if(optional.isEmpty()) {
+////				System.out.println("movie not found");
+////			}
+////			else {
+////				//we should print the info and copy the file to movies folder with name wanted12
+////				
+////				Movie movie = optional.get();
+////				fileOutputStream = new FileOutputStream("C:\\Users\\rajiv.gupta\\Downloads\\movies\\read\\wanted12.mp4");
+////				fileOutputStream.write(movie.getTrailer());
+////			}
+////		} catch (NameNotFoundException | IdNotFoundException | InvalidIdLengthException | IOException e) {
+////			// TODO Auto-generated catch block
+////			e.printStackTrace();
+////		}
+////		finally {
+////			try {
+////				fileOutputStream.close();
+////			} catch (IOException e) {
+////				// TODO Auto-generated catch block
+////				e.printStackTrace();
+////			}
+////		}
+////		
 //		MovieRepository movierepository  = applicationContext.getBean(MovieRepository.class);
 //		System.out.println(movierepository.findByMovieNameAndLanguage("martian","english"));
 //		System.out.println(movierepository.findByMovieName("martian"));
 //		System.out.println(movierepository.findByMovieNameAndReleaseDate("martian","2016-12-17"));
 //		System.out.println(movierepository.findByCast("xyz, rty, atb"));
 //
-//		movie = new Movie("mov009", "matrix", "hrk, srk, atb", 150, "2021-12-19", null, "english", "15", "action");
+//		movie = new Movie("mov009", "matrix", "hrk, srk, atb", 150, "2021-12-19", null, "english", 15, "action");
 //		String result13 = service3.addMovie(movie);
 //		System.out.println(result13);
 //
-//		movie = new Movie("mov0010", "3 idoits", "aamir, kareena, atb", 134, "2021-12-16", null, "hindi", "15",
+//		movie = new Movie("mov0010", "3 idoits", "aamir, kareena, atb", 134, "2021-12-16", null, "hindi", 15,
 //				"comedy");
 //		String result5 = service3.addMovie(movie);
 //		System.out.println(result5);
 //
-//		movie = new Movie("mov0011", "martian", "xyz, rty, atb", 121, "2016-12-17", null, "english", "12", "sci-fi");
+//		movie = new Movie("mov0011", "martian", "xyz, rty, atb", 121, "2016-12-17", null, "english", 12, "sci-fi");
 //		String result6 = service3.addMovie(movie);
 //		System.out.println(result6);
 //
