@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.zee.zee5app.dto.Movie;
 import com.zee.zee5app.dto.Register;
+import com.zee.zee5app.exception.AlreadyExistsException;
 import com.zee.zee5app.exception.IdNotFoundException;
 import com.zee.zee5app.exception.InvalidEmailException;
 import com.zee.zee5app.exception.InvalidIdLengthException;
@@ -29,6 +30,7 @@ public class MovieServiceImpl implements MovieService {
 	private MovieRepository repository ;
 	
 	@Override
+	@org.springframework.transaction.annotation.Transactional(rollbackFor = AlreadyExistsException.class)
 	public Movie addMovie(Movie movie) {
 		// TODO Auto-generated method stub
 		repository.findById(movie.getMovieName());

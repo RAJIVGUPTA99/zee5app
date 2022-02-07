@@ -72,10 +72,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<Register> getUserById(String id) throws IdNotFoundException, InvalidIdLengthException,
-			InvalidEmailException, InvalidPasswordException, InvalidNameException {
+	public Register getUserById(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
-		return repository.findById(id);
+		Optional<Register> optional =  repository.findById(id);
+		if(optional.isEmpty()) {
+			throw new IdNotFoundException("id does not exists");
+		}
+		else {
+			return optional.get();
+		}
 	}
 
 	@Override
@@ -93,18 +98,17 @@ public class UserServiceImpl implements UserService {
 		//cross check with findbyid
 		//use optional here coz findbyid return optional type
 
-			Optional<Register> optional;
+			Register optional;
 			try {
 				optional = this.getUserById(id);
-				if(optional.isEmpty()) {
+				if(optional==null) {
 					throw new IdNotFoundException("record not found");
 				}
 				else {
 					repository.deleteById(id);
 					return "register record deleted";
 				}
-			} catch (IdNotFoundException | InvalidIdLengthException | InvalidEmailException | InvalidPasswordException
-					| InvalidNameException e) {
+			} catch (IdNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				throw new IdNotFoundException(e.getMessage());

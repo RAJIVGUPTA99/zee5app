@@ -79,7 +79,9 @@ public class Register implements Comparable<Register>{
 	private String password;
 	
 	@NotNull
-	private BigDecimal contactNumber;
+	@Length(min = 10)
+	@Length(max = 10)
+	private BigInteger contactNumber;
 
 	@Override
 	public int compareTo(Register o) {
