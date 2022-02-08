@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.dto.Login;
 import com.learning.dto.Register;
@@ -26,6 +27,7 @@ import com.learning.exceptions.IdNotFoundException;
 import com.learning.service.LoginService;
 import com.learning.service.UserService;
 
+@RestController
 @RequestMapping("/users")
 public class UserController {
 	

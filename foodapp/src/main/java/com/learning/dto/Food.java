@@ -35,7 +35,7 @@ import lombok.ToString;
 public class Food implements Comparable<Food> {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private String foodId;
 	
 	@Size(max=50)

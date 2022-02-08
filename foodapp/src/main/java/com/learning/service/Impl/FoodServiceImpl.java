@@ -6,14 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Service;
 
-import com.learning.FoodappApplication;
-import com.learning.dto.EFOODTYPE;
 import com.learning.dto.Food;
-import com.learning.dto.FoodType;
 import com.learning.exceptions.AlreadyExistsException;
 import com.learning.exceptions.IdNotFoundException;
 import com.learning.repository.FoodRepository;
@@ -34,18 +29,16 @@ public class FoodServiceImpl implements FoodService {
 	@Autowired
 	FoodTypeRepository foodTypeRepository;
 	
+	@Autowired
+	Fileutils fileutils;
+	
     //Insert a new record in the table
 	@Override
 	public Food addFood(Food food) throws AlreadyExistsException {
 		// TODO Auto-generated method stub
-		if(foodRepository.findById(food.getFoodId()) != null) {
-			throw new AlreadyExistsException("this record already exists");
-		}
-		
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(FoodServiceImpl.class);
-		
-	Fileutils fileutils = applicationContext.getBean(Fileutils.class);
-	
+//		if(foodRepository.findById(food.getFoodId()) != null) {
+//			throw new AlreadyExistsException("this record already exists");
+//		}
    
 	String source = food.getFoodPic();
     String destination = "C:\\Users\\rajiv.gupta\\Downloads\\movies\\foodStore";
