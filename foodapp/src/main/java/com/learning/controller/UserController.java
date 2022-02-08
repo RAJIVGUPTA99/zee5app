@@ -81,7 +81,7 @@ public class UserController {
 		return ResponseEntity.status(201).body(result);
 	}
 	
-	@PostMapping("/authenticate")
+	@PostMapping("/authenticate/{id}")
 	public ResponseEntity<?> authenticateUser(@RequestBody Login login){
 		String result = loginService.vaidateCredentials(login);
 		Map<String, String> map = new HashMap<>();
