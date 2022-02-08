@@ -34,7 +34,7 @@ public class FoodappApplication {
 //		foodTypeService.addFoodType(foodType3);
 //		Set<FoodType> foodtype = new HashSet<>();
 //		
-		applicationContext.close();
+//		applicationContext.close();
 	}
 
 }
