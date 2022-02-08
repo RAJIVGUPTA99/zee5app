@@ -65,7 +65,7 @@ public class FoodController {
 	{
 		String result = foodService.deleteFoodById(foodId);
 		Map<String, String> map = new HashMap<>();
-		map.put("message", "success deleted");
+		map.put("message", "food item deleted");
 		return ResponseEntity.status(201).body(result);
 	}
 	
@@ -73,8 +73,6 @@ public class FoodController {
 	public ResponseEntity<?> updateFood(@PathVariable("foodId") String foodId, @RequestBody Food food) throws IdNotFoundException
 	{
 		Food result = foodService.updateFood(foodId, food);
-		Map<String, String> map = new HashMap<>();
-		map.put("message", "success updated");
 		return ResponseEntity.status(201).body(result);
 	}
 

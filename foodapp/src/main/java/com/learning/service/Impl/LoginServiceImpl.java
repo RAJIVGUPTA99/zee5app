@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.learning.dto.Login;
+import com.learning.dto.Register;
 import com.learning.exceptions.IdNotFoundException;
 import com.learning.repository.LoginRepository;
 import com.learning.service.LoginService;
@@ -16,6 +17,7 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private LoginRepository loginRepository;
 	
+	//Insert a new record in the table
 	@Override
 	public String addCredentials(Login login) {
 		// TODO Auto-generated method stub
@@ -26,7 +28,8 @@ public class LoginServiceImpl implements LoginService {
 			return "fail";
 		}
 	}
-
+    
+	//Delete the record by id
 	@Override
 	public String deleteCredentials(String email) {
 		// TODO Auto-generated method stub
@@ -46,7 +49,8 @@ public class LoginServiceImpl implements LoginService {
 			return "fail";
 		}
 	}
-
+    
+	//Updating the existing record
 	@Override
 	public String changePassword(String email, String password) throws IdNotFoundException {
 		// TODO Auto-generated method stub
@@ -55,6 +59,19 @@ public class LoginServiceImpl implements LoginService {
 			throw new IdNotFoundException("invalid id");
 		login.get().setPassword(password);
 		return (this.loginRepository.save(login.get())!= null) ? "success":"fail";
+	}
+
+	@Override
+	public String vaidateCredentials(Login login) {
+		// TODO Auto-generated method stub
+		Login login2 = new Login();
+		Register register2 = new Register();
+		
+		if(login.getEmail()==register2.getEmail() && login.getPassword()==register2.getPassword()) {
+			return "success";
+		}
+		else
+			return "fail";
 	}
 
 }

@@ -56,5 +56,7 @@ public class Food implements Comparable<Food> {
 	@JoinTable(name = "food_foodtypes", joinColumns = @JoinColumn(name = "foodId"), 
 			inverseJoinColumns = @JoinColumn(name = "foodTypeId"))
 	private Set<FoodType> foodTypes = new HashSet<>();
+	
+	
 
 }

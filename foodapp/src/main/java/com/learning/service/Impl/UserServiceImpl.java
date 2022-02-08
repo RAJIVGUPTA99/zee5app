@@ -27,7 +27,8 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	LoginRepository loginRepository;
-
+    
+	//Insert a new record in the table
 	@Override
 	@org.springframework.transaction.annotation.Transactional(rollbackFor = AlreadyExistsException.class)
 	public Register addUser(Register register) throws AlreadyExistsException {
@@ -55,40 +56,45 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 	}
-
+    
+	//Updating the existing record
 	@Override
 	public Register updateUser(String id, Register register) throws IdNotFoundException {
 		// TODO Auto-generated method stub
 		if(!this.userRepository.existsById(id))
-			throw new IdNotFoundException("invalid id");
+			throw new IdNotFoundException("Sorry user with " + register.getId() + " not found");
 		
 		return userRepository.save(register);
 	}
-
+    
+	//retrive a record by id
 	@Override
 	public Register getUserById(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
+		Register register = new Register();
 		Optional<Register> optional =  userRepository.findById(id);
 		if(optional.isEmpty()) {
-			throw new IdNotFoundException("id does not exists");
+			throw new IdNotFoundException("Sorry user with " + register.getId() + " not found");
 		}
 		else {
 			return optional.get();
 		}
 	}
-
+    
+	//Delete the record by id
 	@Override
 	public String deleteUserById(String id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
 		Register optional;
+		Register register = new Register();
 		try {
 			optional = this.getUserById(id);
 			if(optional==null) {
-				throw new IdNotFoundException("record not found");
+				throw new IdNotFoundException("Sorry user with " + register.getId() + " not found");
 			}
 			else {
 				userRepository.deleteById(id);
-				return "register record deleted";
+				return "User deleted successfully";
 			}
 		} catch (IdNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -96,7 +102,8 @@ public class UserServiceImpl implements UserService {
 			throw new IdNotFoundException(e.getMessage());
 		}
 	}
-
+    
+	//Retrieve all details
 	@Override
 	public Optional<List<Register>> getAllUserDetails() {
 		// TODO Auto-generated method stub

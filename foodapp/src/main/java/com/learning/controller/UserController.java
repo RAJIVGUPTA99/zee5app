@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.learning.dto.Login;
 import com.learning.dto.Register;
 import com.learning.exceptions.AlreadyExistsException;
 import com.learning.exceptions.IdNotFoundException;
+import com.learning.service.LoginService;
 import com.learning.service.UserService;
 
 @RequestMapping("/users")
@@ -29,6 +31,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	LoginService loginService;
 	
 	@PostMapping("/addUser")
 	public ResponseEntity<?> addUser(@Valid @RequestBody Register register) throws AlreadyExistsException {
@@ -63,7 +68,7 @@ public class UserController {
 	{
 		String result = userService.deleteUserById(id);
 		Map<String, String> map = new HashMap<>();
-		map.put("message", "success deleted");
+		map.put("message", "User deleted successfully");
 		return ResponseEntity.status(201).body(result);
 	}
 	
@@ -71,9 +76,19 @@ public class UserController {
 	public ResponseEntity<?> updateUser(@PathVariable("id") String id, @RequestBody Register register) throws IdNotFoundException
 	{
 		Register result = userService.updateUser(id, register);
-		Map<String, String> map = new HashMap<>();
-		map.put("message", "success updated");
 		return ResponseEntity.status(201).body(result);
 	}
-
+	
+	@PostMapping("/authenticate")
+	public ResponseEntity<?> authenticateUser(@RequestBody Login login){
+		String result = loginService.vaidateCredentials(login);
+		Map<String, String> map = new HashMap<>();
+		map.put("message", "authencating");
+		if(result.equals("success")) {
+			return ResponseEntity.status(201).body(result);
+        
+		}
+		return ResponseEntity.status(200).body(result);
+	
+	}
 }
