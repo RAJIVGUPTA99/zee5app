@@ -3,6 +3,9 @@ package com.zee.zee5app.controlleradvice;
 import java.net.http.HttpHeaders;
 import java.util.HashMap;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -26,7 +29,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(AlreadyExistsException.class)
 	public ResponseEntity<?> alreadyRecordExistsExceptionHandler(AlreadyExistsException e){
 		HashMap<String, String> map = new HashMap<>();
-		map.put("message", "record already exists"+" "+e.getMessage());
+		map.put("message", e.getMessage());
 		return ResponseEntity.badRequest().body(map);
 		
 	}
@@ -67,5 +70,10 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 	//instead if we use this method --> we can have ease of maintanance
 	private ResponseEntity<Object> buiResponseEntity(ApiError apiError){
 		return new ResponseEntity<>(apiError, apiError.getHttpStatus());
+	}
+	
+	@ExceptionHandler(ConstraintViolationException.class)
+	protected ResponseEntity<?> handleConstraintViolation() {
+		return null;
 	}
 }
