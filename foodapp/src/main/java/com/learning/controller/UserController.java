@@ -78,6 +78,7 @@ public class UserController {
 	public ResponseEntity<?> updateUser(@PathVariable("id") String id, @RequestBody Register register) throws IdNotFoundException
 	{
 		Register result = userService.updateUser(id, register);
+		loginService.changePassword(result.getEmail(), result.getPassword());
 		return ResponseEntity.status(201).body(result);
 	}
 	

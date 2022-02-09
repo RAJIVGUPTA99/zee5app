@@ -45,6 +45,7 @@ public class Food implements Comparable<Food> {
 	//private EFOODTYPE foodType;
 	private String description;
 	private String foodPic;
+	private float foodCost;
 
 	@Override
 	public int compareTo(Food o) {
