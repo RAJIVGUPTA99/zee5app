@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.zee.zee5app.dto.Login;
 import com.zee.zee5app.dto.EROLE;
-import com.zee.zee5app.dto.Register;
+import com.zee.zee5app.dto.User;
 import com.zee.zee5app.exception.IdNotFoundException;
 import com.zee.zee5app.repository.LoginRepository;
 import com.zee.zee5app.service.LoginService;
@@ -66,5 +66,23 @@ public class LoginServiceImpl implements LoginService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String vaidateCredentials(Login login) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+//	public String vaidateCredentials(Login login) {
+//		// TODO Auto-generated method stub
+//		Login login2 = new Login();
+//		Register register2 = new Register();
+//		
+//		if(login.getEmail()==register2.getEmail() && login.getPassword()==register2.getPassword()) {
+//			return "success";
+//		}
+//		else
+//			return "fail";
+//	}
 
 }

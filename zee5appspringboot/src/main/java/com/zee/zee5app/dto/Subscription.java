@@ -66,5 +66,5 @@ public class Subscription implements Comparable<Subscription>{
 	//@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	@JoinColumn(name = "regId")
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Register register;
+	private User register;
 }

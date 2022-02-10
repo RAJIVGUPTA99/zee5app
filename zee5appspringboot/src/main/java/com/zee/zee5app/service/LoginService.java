@@ -8,6 +8,7 @@ public interface LoginService {
 	public String deleteCredentials(String userName);
 	public String changePassword(String userName, String password);
 	public String changeRole(String userName, EROLE role);
+	public String vaidateCredentials(Login login);
 	
 
 }

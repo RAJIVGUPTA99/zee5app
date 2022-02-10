@@ -7,12 +7,15 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -45,14 +48,21 @@ import lombok.ToString;
 //ORM mapping purpose
 @Entity //entity class is used for ORM - from javax
 //to customize table name
-@Table(name = "register")
-public class Register implements Comparable<Register>{
+@Table(name = "register", uniqueConstraints = 
+{@UniqueConstraint(columnNames = "userName"), 
+		@UniqueConstraint(columnNames = "email")})
+public class User implements Comparable<User>{
 
 	@Id //it will consider this column as primary key
 	//camel naming conventions are converted to snake case i.e. reg_id
 	@Column(name = "regId")
-	@Length(min = 6)
-	private String id;
+//	@Length(min = 6)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@NotBlank
+	@Size(max=20)
+	private String userName;
 	
 	@Size(max=50)
 	@NotBlank
@@ -74,7 +84,7 @@ public class Register implements Comparable<Register>{
 	private BigInteger contactNumber;
 
 	@Override
-	public int compareTo(Register o) {
+	public int compareTo(User o) {
 		 //TODO Auto-generated method stub
 		//ascending
 		return this.id.compareTo(o.getId());
