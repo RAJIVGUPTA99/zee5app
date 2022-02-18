@@ -22,14 +22,14 @@ public class SignupRequest {
 	@Email
 	private String email;
 
-	private Set<String> role;
-
 	@NotBlank
-	@Size(min = 6, max = 40)
+	@Size(min = 6, max = 100)
 	private String password;
 	
 	@NotBlank
 	@Size(min = 3, max = 100)
 	private String address;
+	
+	private Set<String> role;
 
 }

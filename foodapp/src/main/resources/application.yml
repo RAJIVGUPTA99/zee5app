@@ -19,8 +19,6 @@ spring:
       ddl-auto:  update 
 server:
   port: 9005
-  servlet:
-    context-path: /api
     
 learning:
   app:

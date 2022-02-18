@@ -46,23 +46,25 @@ public class User implements Comparable<User>{
 	@Column(name = "regId")
 	private Long id;
 	
-	@Size(max=50)
 	@NotBlank
-	private String name;
-	
-	@NotBlank
-	@Size(max=20)
+	@Size(min = 3, max = 20)
 	private String userName;
-	
+
+	@NotBlank
+	@Size(min = 3, max = 20)
+	private String name;
+
+	@NotBlank
+	@Size(max = 50)
 	@Email
 	private String email;
-	
-	@Size(max=100)
+
 	@NotBlank
+	@Size(min = 6, max = 100)
 	private String password;
 	
-	@Size(max=200)
 	@NotBlank
+	@Size(min = 3, max = 100)
 	private String address;
 
 	@Override
@@ -71,11 +73,11 @@ public class User implements Comparable<User>{
 		return this.id.compareTo(o.getId());
 	}
 	
-	public User(String userName,String email, String password, String name, String address) {
+	public User(String userName, String name, String email, String password, String address) {
 		this.userName = userName;
+		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.name = name;
 		this.address = address;
 		
 	}

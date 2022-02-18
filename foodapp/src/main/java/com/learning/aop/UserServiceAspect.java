@@ -52,11 +52,6 @@ public class UserServiceAspect {
 		System.out.println(joinPoint.getTarget());
 	}
 	
-//	@After(value = "execution(* com.zee.zee5app.service.Impl.*.*(..))")
-//	public void afterAllServiceMethods(JoinPoint joinPoint) {
-//		//action - advice
-//		System.out.println("after hello");
-//		System.out.println(joinPoint.getTarget());
-//	}
+
 
 }

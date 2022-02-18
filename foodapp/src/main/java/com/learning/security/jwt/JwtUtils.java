@@ -25,11 +25,11 @@ public class JwtUtils {
 	private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 	
 	//read jwtSecret
-	@Value("${zee5app.app.jwtSecret}")
+	@Value("${learning.app.jwtSecret}")
 	private String jwtSecret;
 	
 	//read expvalue
-	@Value("${zee5app.app.jwtExpirationMs}")
+	@Value("${learning.app.jwtExpirationMs}")
 	private int jwtExpiryValue;
 	
 	public String generateToken(Authentication authentication) {

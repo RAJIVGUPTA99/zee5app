@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.learning.dto.EFOODTYPE;
 import com.learning.dto.Food;
 import com.learning.exception.AlreadyExistsException;
 import com.learning.exception.IdNotFoundException;
@@ -112,18 +113,13 @@ public class FoodServiceImpl implements FoodService {
 		// TODO Auto-generated method stub
 		return Optional.ofNullable(foodRepository.findAll());
 	}
-    
-//	//Retrive details by foodtype
+
 //	@Override
-//	public Food getFoodByType(FoodType EFOODTYPE, Food food) {
+//	public Optional<List<Food>> getByFoodType(EFOODTYPE foodType) {
 //		// TODO Auto-generated method stub
-//		Optional<EFOODTYPE> optional =  foodRepository.findById((EFOODTYPE.getFoodTypeId()));
-//		if(optional.isEmpty()) {
-//			throw new IdNotFoundException("Sorry food not found");
-//		}
-//		else {
-//			return optional.get();
-//		}
+//		return Optional.ofNullable(foodRepository.findAllByFoodType(foodType));
 //	}
+  
+
 
 }
