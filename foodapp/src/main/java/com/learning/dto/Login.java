@@ -8,6 +8,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -40,9 +41,10 @@ public class Login implements Comparable<Login> {
 		return this.email.compareTo(o.getEmail());
 	}
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
     @JoinColumn(name = "regId")
     @JsonProperty(access = Access.WRITE_ONLY)
-	private Register register;
+	private User user;
 
 }

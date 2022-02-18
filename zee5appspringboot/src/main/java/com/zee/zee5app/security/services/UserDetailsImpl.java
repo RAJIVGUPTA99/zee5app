@@ -12,12 +12,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zee.zee5app.dto.User;
 
+import lombok.Data;
+
+@Data
+
 public class UserDetailsImpl implements UserDetails {
 
 	private Long id;
-
 	private String userName;
-
 	private String email;
 
 	@JsonIgnore

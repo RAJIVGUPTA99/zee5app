@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.learning.dto.Login;
-import com.learning.dto.Register;
-import com.learning.exceptions.IdNotFoundException;
+import com.learning.dto.User;
+import com.learning.exception.IdNotFoundException;
 import com.learning.repository.LoginRepository;
 import com.learning.service.LoginService;
 
@@ -65,7 +65,7 @@ public class LoginServiceImpl implements LoginService {
 	public String vaidateCredentials(Login login) {
 		// TODO Auto-generated method stub
 		Login login2 = new Login();
-		Register register2 = new Register();
+		User register2 = new User();
 		
 		if(login.getEmail()==register2.getEmail() && login.getPassword()==register2.getPassword()) {
 			return "success";

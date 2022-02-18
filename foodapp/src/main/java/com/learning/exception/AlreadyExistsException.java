@@ -1,4 +1,4 @@
-package com.learning.exceptions;
+package com.learning.exception;
 
 public class AlreadyExistsException extends Exception {
 	public AlreadyExistsException(String message) {

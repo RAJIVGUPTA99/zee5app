@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.learning.dto.Food;
-import com.learning.exceptions.AlreadyExistsException;
-import com.learning.exceptions.IdNotFoundException;
+import com.learning.exception.AlreadyExistsException;
+import com.learning.exception.IdNotFoundException;
 import com.learning.repository.FoodRepository;
 import com.learning.repository.FoodTypeRepository;
 import com.learning.service.FoodService;
@@ -64,7 +64,7 @@ public class FoodServiceImpl implements FoodService {
     
 	//Updating the existing record
 	@Override
-	public Food updateFood(String foodId, Food food) throws IdNotFoundException {
+	public Food updateFood(Long foodId, Food food) throws IdNotFoundException {
 		// TODO Auto-generated method stub
 		if(!this.foodRepository.existsById(foodId))
 			throw new IdNotFoundException("Sorry food not found");
@@ -74,7 +74,7 @@ public class FoodServiceImpl implements FoodService {
     
 	//retrive a record by id
 	@Override
-	public Food getFoodById(String foodId) throws IdNotFoundException {
+	public Food getFoodById(Long foodId) throws IdNotFoundException {
 		// TODO Auto-generated method stub
 		Optional<Food> optional =  foodRepository.findById(foodId);
 		if(optional.isEmpty()) {
@@ -87,7 +87,7 @@ public class FoodServiceImpl implements FoodService {
     
 	//Delete the record by id
 	@Override
-	public String deleteFoodById(String foodId) throws IdNotFoundException {
+	public String deleteFoodById(Long foodId) throws IdNotFoundException {
 		// TODO Auto-generated method stub
 		Food optional;
 		try {

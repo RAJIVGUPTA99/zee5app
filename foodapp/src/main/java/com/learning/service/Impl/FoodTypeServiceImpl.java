@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.learning.dto.FoodType;
-import com.learning.exceptions.IdNotFoundException;
+import com.learning.exception.IdNotFoundException;
 import com.learning.repository.FoodTypeRepository;
 import com.learning.service.FoodTypeService;
 

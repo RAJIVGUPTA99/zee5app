@@ -37,6 +37,8 @@ public class Episodes implements Comparable<Movie> {
 	@NotBlank
 	private String episodeName;
 	private int length;
+	private String location;
+	private String trailer;
 
 	@Override
 	public int compareTo(Movie o) {

@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User updateUser(String id, User register) throws IdNotFoundException {
+	public User updateUser(Long id, User register) throws IdNotFoundException {
 		// TODO Auto-generated method stub
 		
 		if(!this.repository.existsById(id))
@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getUserById(String id) throws IdNotFoundException {
+	public User getUserById(Long id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
 		Optional<User> optional =  repository.findById(id);
 		if(optional.isEmpty()) {
@@ -97,7 +97,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String deleteUserById(String id) throws IdNotFoundException {
+	public String deleteUserById(Long id) throws IdNotFoundException {
 		// TODO Auto-generated method stub
 		//cross check with findbyid
 		//use optional here coz findbyid return optional type

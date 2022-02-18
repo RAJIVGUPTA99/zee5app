@@ -1,6 +1,6 @@
 package com.zee.zee5app.repository;
 
-import java.lang.StackWalker.Option;
+
 import java.math.BigInteger;
 import java.util.Optional;
 
@@ -16,8 +16,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	//its pre-defined in jpa
 	//Boolean existsByEmail(String email);
 	//Boolean existsByContactNumber(BigDecimal contactNumber);
-	Boolean existsByEmailAndContactNumber(String email,BigInteger contactNumber);
-	
+	Boolean existsByEmailAndContactNumber(String email, BigInteger contactNumber);
+	Boolean existsByUserName(String userName);
 	Optional<User> findByUserName(String userName);
+	Boolean existsByEmail(String email);
 	
 }

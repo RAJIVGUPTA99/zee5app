@@ -17,9 +17,9 @@ import com.zee.zee5app.repository.UserRepository;
 
 public interface UserService {
 	public User addUser(User register) throws AlreadyExistsException;
-	public User updateUser(String id, User register) throws IdNotFoundException;
-	public User getUserById(String id) throws IdNotFoundException;
+	public User updateUser(Long id, User register) throws IdNotFoundException;
+	public User getUserById(Long id) throws IdNotFoundException;
 	public User[] getAllUsers() throws InvalidIdLengthException, InvalidNameException, InvalidEmailException, InvalidPasswordException;
-	public String deleteUserById(String id) throws IdNotFoundException;
+	public String deleteUserById(Long id) throws IdNotFoundException;
 	public Optional<List<User>> getAllUserDetails();
 }

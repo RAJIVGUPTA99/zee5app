@@ -1,6 +1,7 @@
 package com.zee.zee5app.service.Impl;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 import javax.sql.DataSource;
@@ -71,6 +72,12 @@ public class LoginServiceImpl implements LoginService {
 	public String vaidateCredentials(Login login) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public Optional<List<Login>> getAllLoginDetails() {
+		// TODO Auto-generated method stub
+		return Optional.ofNullable(repository.findAll());
 	}
 	
 //	public String vaidateCredentials(Login login) {

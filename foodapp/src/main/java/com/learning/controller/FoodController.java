@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.dto.Food;
-import com.learning.exceptions.AlreadyExistsException;
-import com.learning.exceptions.IdNotFoundException;
+import com.learning.exception.AlreadyExistsException;
+import com.learning.exception.IdNotFoundException;
 import com.learning.service.FoodService;
 
 @RestController
@@ -44,7 +44,7 @@ public class FoodController {
 	
 	//retrieve single record
 	@GetMapping("/{foodId}")
-	public ResponseEntity<?> getFoodById(@PathVariable("foodId") String foodId) throws IdNotFoundException{
+	public ResponseEntity<?> getFoodById(@PathVariable("foodId") Long foodId) throws IdNotFoundException{
 		Food result = foodService.getFoodById(foodId);
 		return ResponseEntity.ok(result);	
 		
@@ -63,7 +63,7 @@ public class FoodController {
 	}
 	
 	@DeleteMapping("/delete/{foodId}")
-	public ResponseEntity<?> deleteFoodById(@PathVariable("foodId") String foodId) throws IdNotFoundException, SQLException
+	public ResponseEntity<?> deleteFoodById(@PathVariable("foodId") Long foodId) throws IdNotFoundException, SQLException
 	{
 		String result = foodService.deleteFoodById(foodId);
 		Map<String, String> map = new HashMap<>();
@@ -72,7 +72,7 @@ public class FoodController {
 	}
 	
 	@PutMapping("/update/{foodId}")
-	public ResponseEntity<?> updateFood(@PathVariable("foodId") String foodId, @RequestBody Food food) throws IdNotFoundException
+	public ResponseEntity<?> updateFood(@PathVariable("foodId") Long foodId, @RequestBody Food food) throws IdNotFoundException
 	{
 		Food result = foodService.updateFood(foodId, food);
 		return ResponseEntity.status(201).body(result);

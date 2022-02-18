@@ -1,7 +1,7 @@
 package com.learning.service;
 
 import com.learning.dto.Login;
-import com.learning.exceptions.IdNotFoundException;
+import com.learning.exception.IdNotFoundException;
 
 public interface LoginService {
 	

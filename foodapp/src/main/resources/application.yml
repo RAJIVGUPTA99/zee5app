@@ -22,3 +22,8 @@ server:
   servlet:
     context-path: /api
     
+learning:
+  app:
+    jwtSecret:  secretkey
+    jwtExpirationMs:  86400000
+    

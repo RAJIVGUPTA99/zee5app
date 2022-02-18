@@ -13,12 +13,13 @@ public interface MovieRepository extends JpaRepository<Movie, String> {
 	//find: retrieve details based on movieName and language
 	//boolean: exists
 	
-	//Boolean existsByMovieNameAndLanguage(String movieName, String language);
+	Boolean existsByMovieNameAndLanguage(String movieName, String language);
 	
 	
 	Optional<Movie> findByMovieNameAndLanguage(String movieName, String language);
 	
-	Optional<Movie> findByMovieName(String movieName);
+	//Optional<Movie> findByMovieName(String movieName);
+	
 	
 	Optional<Movie> findByMovieNameAndReleaseDate(String movieName, String releaseDate);
 	

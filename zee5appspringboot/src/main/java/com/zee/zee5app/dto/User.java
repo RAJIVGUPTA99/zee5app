@@ -40,7 +40,6 @@ import lombok.ToString;
 //write @Data and then press ctrl+space then enter to get the lombok
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 
 //we use this method to override instead of other one used below coz when we change anything later, it can handle on its own
@@ -81,8 +80,10 @@ public class User implements Comparable<User>{
 	@NotBlank
 	private String password;
 	
-	@NotNull
+	
 	private BigInteger contactNumber;
+	
+	
 
 	@Override
 	public int compareTo(User o) {
@@ -94,6 +95,14 @@ public class User implements Comparable<User>{
 		//return o.id.compareTo(this.getId())
 	}
 	
+	public User(String userName,String email, String password, String firstName, String lastName) {
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 	@ManyToMany(fetch = FetchType.LAZY)
 	//@JsonIgnore
 	//maintain in 3rd table
@@ -101,7 +110,7 @@ public class User implements Comparable<User>{
 	inverseJoinColumns = @JoinColumn(name = "roleId") )//relationship btwn registered user(regId) and role(roleId)
 	private Set<Role> roles = new HashSet<>();
 	
-	@OneToOne(mappedBy = "register", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	//@JsonIgnore
 	//@JsonSerialize(using = CustomListSerializer2.class)
 	//@JsonIgnoreProperties({"hibernateLazyInitializer","handler","subscription"})
