@@ -10,10 +10,11 @@ import org.springframework.stereotype.Service;
 
 import com.learning.dto.EFOODTYPE;
 import com.learning.dto.Food;
+
 import com.learning.exception.AlreadyExistsException;
 import com.learning.exception.IdNotFoundException;
 import com.learning.repository.FoodRepository;
-import com.learning.repository.FoodTypeRepository;
+
 import com.learning.service.FoodService;
 import com.learning.utils.Fileutils;
 
@@ -27,8 +28,7 @@ public class FoodServiceImpl implements FoodService {
 	@Autowired
 	FoodRepository foodRepository;
 	
-	@Autowired
-	FoodTypeRepository foodTypeRepository;
+	
 	
 	@Autowired
 	Fileutils fileutils;
@@ -73,7 +73,7 @@ public class FoodServiceImpl implements FoodService {
 		return foodRepository.save(food);
 	}
     
-	//retrive a record by id
+	//retrieve a record by id
 	@Override
 	public Food getFoodById(Long foodId) throws IdNotFoundException {
 		// TODO Auto-generated method stub
@@ -114,11 +114,13 @@ public class FoodServiceImpl implements FoodService {
 		return Optional.ofNullable(foodRepository.findAll());
 	}
 
-//	@Override
-//	public Optional<List<Food>> getByFoodType(EFOODTYPE foodType) {
-//		// TODO Auto-generated method stub
-//		return Optional.ofNullable(foodRepository.findAllByFoodType(foodType));
-//	}
+	@Override
+	public Optional<List<Food>> getByFoodType(EFOODTYPE foodType) {
+		// TODO Auto-generated method stub
+		return Optional.ofNullable(foodRepository.findAllByFoodType(foodType));
+	}
+
+
   
 
 

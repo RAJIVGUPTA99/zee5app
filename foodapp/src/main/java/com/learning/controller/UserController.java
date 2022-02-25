@@ -35,7 +35,6 @@ import com.learning.service.LoginService;
 import com.learning.service.UserService;
 
 
-
 @CrossOrigin("*")
 @RestController // combination of @ResponseBody and @Controller
 //REST API: Response wherever we have to share the response that method must be marked with @ResponseBody

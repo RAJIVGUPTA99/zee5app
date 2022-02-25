@@ -8,9 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.learning.dto.EFOODTYPE;
-import com.learning.dto.FoodType;
-import com.learning.repository.FoodTypeRepository;
-import com.learning.service.FoodTypeService;
 
 
 @SpringBootApplication

@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,6 +48,9 @@ public class Food implements Comparable<Food> {
 	private String description;
 	private String foodPic;
 	private float foodCost;
+	
+	@Enumerated(EnumType.STRING)
+	private EFOODTYPE foodType;
 
 	@Override
 	public int compareTo(Food o) {
@@ -53,10 +58,8 @@ public class Food implements Comparable<Food> {
 		return this.foodId.compareTo(o.getFoodId());
 	}
 	
-	@ManyToMany
-	@JoinTable(name = "food_foodtypes", joinColumns = @JoinColumn(name = "foodId"), 
-			inverseJoinColumns = @JoinColumn(name = "foodTypeId"))
-	private Set<FoodType> foodTypes = new HashSet<>();
+	
+	
 	
 	
 

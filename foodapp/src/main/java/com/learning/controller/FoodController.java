@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,11 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.dto.EFOODTYPE;
 import com.learning.dto.Food;
-import com.learning.dto.FoodType;
 import com.learning.exception.AlreadyExistsException;
 import com.learning.exception.IdNotFoundException;
 import com.learning.service.FoodService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/food")
 public class FoodController {
@@ -72,18 +73,18 @@ public class FoodController {
 		return ResponseEntity.ok(optional.get());
 	}
 	
-////	GET request for retrieving food item by food type
-//	@GetMapping("/foodType/{foodType}")
-//	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-//	public ResponseEntity<?> getFoodByType(@PathVariable("foodType") FoodType foodType) {
-//		Optional<List<Food>> optional = foodService.getByFoodType(foodType);
-//		if (optional.isEmpty()) {
-//			Map<String, String> map = new HashMap<String, String>();
-//			map.put("message", "Sorry Food Not Found");
-//			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(map);
-//		}
-//		return ResponseEntity.ok(optional.get());
-//	}
+//	GET request for retrieving food item by food type
+	@GetMapping("/foodType/{foodType}")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	public ResponseEntity<?> getFoodByType(@PathVariable("foodType") EFOODTYPE foodType) {
+		Optional<List<Food>> optional = foodService.getByFoodType(foodType);
+		if (optional.isEmpty()) {
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("message", "Sorry Food Not Found");
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(map);
+		}
+		return ResponseEntity.ok(optional.get());
+	}
 	
 //	DELETE request for deleting food item by id
 	@DeleteMapping("/{foodId}")
